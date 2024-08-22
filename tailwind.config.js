@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         cabin: ['Cabin', 'sans-serif'], // Add the font here
+        noto: ['Noto Sans Mayan Numerals', 'sans-serif']
       },
     },
   },
