@@ -11,8 +11,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#23310C] p-8 text-white font-cabin flex">
-                <form className="max-w-sm mx-auto flex gap-3 ">
+            <div className="bg-[#23310C] py-8 px-20 text-white font-cabin flex-column">
+                <form className="px-10 flex flex-wrap gap-3 justify-center">
                     <Select
                         label="Choose part of the world"
                         selectId="Continent"
@@ -73,18 +73,21 @@ const Home = () => {
                             },
                         ]}
                     />
-                    <Checkbox label="Low budget travel?" />
-                    <Checkbox label="Hiking" />
-                    <Checkbox label="City sightseeing" />
-                    <Checkbox label="Mountain" />
-                    <Checkbox label="Wine" />
-                    <Checkbox label="Wilderness" />
-                    <Checkbox label="Desert" />
-                    <Checkbox label="Forest" />
-                    <Checkbox label="Island" />
-                    <Checkbox label="Family-friendly" />
-                    <Checkbox label="Pet-friendly" />
+                        <Checkbox label="Low budget" />
+                        <Checkbox label="Hiking" />
+                        <Checkbox label="City sightseeing" />
+                        <Checkbox label="Mountain" />
+                        <Checkbox label="Wine" />
+                        <Checkbox label="Wilderness" />
+                        <Checkbox label="Desert" />
+                        <Checkbox label="Forest" />
+                        <Checkbox label="Island" />
+                        <Checkbox label="Family-friendly" />
+                        <Checkbox label="Pet-friendly" />
                 </form>
+                <div className="w-1/2 px-10">
+                        Animation
+                </div>
             </div>
         </div>
     );
