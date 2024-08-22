@@ -13,8 +13,9 @@ const Home = () => {
             </div>
             <div className="bg-[#23310C] py-8 px-20 text-white font-cabin flex-column">
                 <form className="px-10 flex flex-wrap gap-3 justify-center">
+                    <div className="flex flex-wrap justify-center">
                     <Select
-                        label="Choose part of the world"
+                        label="Choose a continent"
                         selectId="Continent"
                         optionsArray={[
                             {
@@ -48,7 +49,7 @@ const Home = () => {
                         ]}
                     />
                     <Select
-                        label="Choose temperature"
+                        label="Choose a temperature"
                         selectId="Weather"
                         optionsArray={[
                             {
@@ -73,6 +74,8 @@ const Home = () => {
                             },
                         ]}
                     />
+                    </div>
+                    <div className="flex flex-wrap justify-center">
                         <Checkbox label="Low budget" />
                         <Checkbox label="Hiking" />
                         <Checkbox label="City sightseeing" />
@@ -84,6 +87,7 @@ const Home = () => {
                         <Checkbox label="Island" />
                         <Checkbox label="Family-friendly" />
                         <Checkbox label="Pet-friendly" />
+                    </div>
                 </form>
                 <div className="w-1/2 px-10">
                         Animation
