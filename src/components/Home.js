@@ -1,5 +1,6 @@
 import Select from "./home-components/Select";
 import Checkbox from "./home-components/Checkbox";
+
 const Home = () => {
     return (
         <div>
@@ -11,67 +12,31 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#23310C] py-8 px-20 text-white font-cabin flex-column">
-                <form className="px-10 flex flex-wrap gap-3 justify-center">
+            <div className="bg-[#23310C] text-white font-cabin flex-column">
+                <form className="py-8 px-20 flex flex-wrap gap-3 justify-center">
                     <div className="flex flex-wrap justify-center">
                     <Select
                         label="Choose a continent"
                         selectId="Continent"
                         optionsArray={[
-                            {
-                                value: "anyContinent",
-                                text: "Any"
-                            },
-                            {
-                                value: "africa",
-                                text: "Africa"
-                            },
-                            {
-                                value: "asia",
-                                text: "Asia"
-                            },
-                            {
-                                value: "europe",
-                                text: "Europe"
-                            },
-                            {
-                                value: "northamerica",
-                                text: "North America"
-                            },
-                            {
-                                value: "oceania",
-                                text: "Oceania"
-                            },
-                            {
-                                value: "southamerica",
-                                text: "South America"
-                            },
+                            {value: "anyContinent", text: "Any"},
+                            {value: "africa", text: "Africa"},
+                            {value: "asia", text: "Asia"},
+                            {value: "europe", text: "Europe"},
+                            {value: "northamerica", text: "North America"},
+                            {value: "oceania", text: "Oceania"},
+                            {value: "southamerica", text: "South America"},
                         ]}
                     />
                     <Select
                         label="Choose a temperature"
                         selectId="Weather"
                         optionsArray={[
-                            {
-                                value: "anyTemperature",
-                                text: "Any"
-                            },
-                            {
-                                value: ">30",
-                                text: "HOT - above +30C"
-                            },
-                            {
-                                value: "15-30",
-                                text: "WARM - from +15C to +30C"
-                            },
-                            {
-                                value: "0-15",
-                                text: "CHILLY - from 0C to +15C"
-                            },
-                            {
-                                value: "<0",
-                                text: "COLD - below 0"
-                            },
+                            {value: "anyTemperature", text: "Any"},
+                            {value: ">30", text: "HOT - above +30C"},
+                            {value: "15-30", text: "WARM - from +15C to +30C"},
+                            {value: "0-15", text: "CHILLY - from 0C to +15C"},
+                            {value: "<0", text: "COLD - below 0"},
                         ]}
                     />
                     </div>
@@ -88,10 +53,10 @@ const Home = () => {
                         <Checkbox label="Family-friendly" />
                         <Checkbox label="Pet-friendly" />
                     </div>
+                    <div>
+                        <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
+                    </div>
                 </form>
-                <div className="w-1/2 px-10">
-                        Animation
-                </div>
             </div>
         </div>
     );
