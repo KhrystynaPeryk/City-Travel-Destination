@@ -12,7 +12,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#23310C] text-white font-noto flex-column">
+            <div className="bg-[#23310C] relative text-white font-noto flex-column"> 
+            {/* shadow-2xl shadow-[#23310C] */}
                 <form className="py-8 px-20 flex flex-wrap gap-3 justify-center">
                     <div className="flex flex-wrap justify-center w-full gap-10 max-lg:gap-2">
                         <Select
@@ -33,10 +34,10 @@ const Home = () => {
                             selectId="Weather"
                             optionsArray={[
                                 {value: "anyTemperature", text: "Any"},
-                                {value: ">30", text: "HOT (above +30C)"},
-                                {value: "15-30", text: "WARM (+15C to +30C)"},
-                                {value: "0-15", text: "CHILLY (0C to +15C)"},
-                                {value: "<0", text: "COLD - below 0"},
+                                {value: ">30", text: "HOT (above +30°C)"},
+                                {value: "15-30", text: "WARM (+15°C to +30°C)"},
+                                {value: "0-15", text: "CHILLY (0°C to +15°C)"},
+                                {value: "<0", text: "COLD (below 0°C)"},
                             ]}
                         />
                     </div>
@@ -57,6 +58,7 @@ const Home = () => {
                         <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
                     </div>
                 </form>
+                <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-[#23310C] to-transparent" />
             </div>
         </div>
     );
