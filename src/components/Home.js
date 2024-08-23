@@ -1,7 +1,28 @@
 import Select from "./home-components/Select";
 import Checkbox from "./home-components/Checkbox";
+import { useState } from "react";
 
 const Home = () => {
+    const [formValues, setFormValues] = useState({
+        continent: 'Any',
+        weather: 'Any',
+        lowBudget: false,
+        hiking: false,
+        citySightseeing: false,
+        mountain: false,
+        wine: false,
+        wilderness: false,
+        desert: false,
+        forest: false,
+        island: false,
+        familyFriendly: false,
+        petFriendly: false
+    })
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("Let's go")
+        console.log(formValues)
+    }
     return (
         <div>
             <div className="relative">
@@ -13,14 +34,16 @@ const Home = () => {
                 </div>
             </div>
             <div className="bg-[#23310C] relative text-white font-noto flex-column"> 
-            {/* shadow-2xl shadow-[#23310C] */}
-                <form className="py-8 px-20 flex flex-wrap gap-3 justify-center">
+                <form 
+                    className="py-8 px-20 flex flex-wrap gap-3 justify-center"
+                    onSubmit={handleSubmit}
+                >
                     <div className="flex flex-wrap justify-center w-full gap-10 max-lg:gap-2">
                         <Select
                             label="Choose a continent"
-                            selectId="Continent"
+                            selectId="continent"
                             optionsArray={[
-                                {value: "anyContinent", text: "Any"},
+                                {value: "Any", text: "Any"},
                                 {value: "africa", text: "Africa"},
                                 {value: "asia", text: "Asia"},
                                 {value: "europe", text: "Europe"},
@@ -28,17 +51,23 @@ const Home = () => {
                                 {value: "oceania", text: "Oceania"},
                                 {value: "southamerica", text: "South America"},
                             ]}
+                            onChange={(selectedContinent) => setFormValues((prev) => {
+                                return {...prev, continent: selectedContinent}
+                            })}
                         />
                         <Select
                             label="Choose a temperature"
-                            selectId="Weather"
+                            selectId="weather"
                             optionsArray={[
-                                {value: "anyTemperature", text: "Any"},
-                                {value: ">30", text: "HOT (above +30°C)"},
-                                {value: "15-30", text: "WARM (+15°C to +30°C)"},
-                                {value: "0-15", text: "CHILLY (0°C to +15°C)"},
-                                {value: "<0", text: "COLD (below 0°C)"},
+                                {value: "Any", text: "Any"},
+                                {value: "hot", text: "HOT (above +30°C)"},
+                                {value: "warm", text: "WARM (+15°C to +30°C)"},
+                                {value: "chilly", text: "CHILLY (0°C to +15°C)"},
+                                {value: "cold", text: "COLD (below 0°C)"},
                             ]}
+                            onChange={(selectedWeather) => setFormValues((prev) => {
+                                return {...prev, weather: selectedWeather}
+                            })}
                         />
                     </div>
                     <div className="flex flex-wrap justify-center">
