@@ -1,7 +1,9 @@
 import Select from "./home-components/Select";
 import Checkbox from "./home-components/Checkbox";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { filterCityList } from "./helpers/filterCityList";
+import AnimationLoading from "./home-components/AnimationLoading";
+import Card from "./home-components/Card";
 
 const Home = () => {
     const [formValues, setFormValues] = useState({
@@ -20,12 +22,35 @@ const Home = () => {
         family_friendly: false,
         pet_friendly: false
     })
+    const [filteredData, setFilteredData] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
+    const [showResults, setShowResults] = useState(false);
+
+    const animationRef = useRef(null);
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Let's go")
-        console.log(formValues)
-        const returnArr = filterCityList(formValues)
-        console.log(returnArr)
+
+        // Use requestAnimationFrame to ensure the scroll happens after the layout update
+        requestAnimationFrame(() => {
+            if (animationRef.current) {
+                setTimeout(() => {
+                    animationRef.current.scrollIntoView({ behavior: 'smooth' });
+                }, 100); // Small delay to ensure proper rendering before scroll
+            }
+        });
+
+        setIsLoading(true);
+        setShowResults(false);
+
+        const filteredCities = filterCityList(formValues);
+        setFilteredData(filteredCities);
+        console.log(filteredCities)
+
+        setTimeout(() => {
+            setIsLoading(false);
+            setShowResults(true);
+        }, 2000);
     }
     const changeBoolValue = (keyName, bool) => {
         setFormValues((prev) => {
@@ -42,7 +67,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="bg-[#23310C] relative text-white font-noto flex-column"> 
+            <div className="bg-[#23310C] relative mb-28 text-white font-noto flex-column"> 
                 <form 
                     className="py-8 px-20 flex flex-wrap gap-3 justify-center"
                     onSubmit={handleSubmit}
@@ -93,12 +118,34 @@ const Home = () => {
                         <Checkbox label="Family-friendly" onChange={(bool) => changeBoolValue('family_friendly', bool)} />
                         <Checkbox label="Pet-friendly" onChange={(bool) => changeBoolValue('pet_friendly', bool)} />
                     </div>
-                    <div>
+                    <div className="my-10">
                         <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
                     </div>
                 </form>
                 <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-[#23310C] to-transparent" />
             </div>
+                {/* Loading Animation */}
+                <div ref={animationRef}>
+                    {isLoading && (
+                        <AnimationLoading />
+                    )}
+                </div>
+
+                {/* Display Filtered Cities */}
+                {showResults && (
+                    <>
+                        <h2 className="w-full p-10 text-center text-4xl font-bold font-noto">Cities that match your selected criteria</h2>
+                        <div className="flex flex-wrap justify-center gap-6 p-6">
+                            {filteredData.length > 0 ? (
+                                filteredData.map((city, index) => (
+                                    <Card key={index} city={city} />
+                                ))
+                            ) : (
+                                <p>Sorry, no cities match your criteria.</p>
+                            )}
+                        </div>
+                    </>
+                )}
         </div>
     );
 }
