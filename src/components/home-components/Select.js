@@ -1,10 +1,9 @@
 import { useState } from "react"
 
 const Select = ({selectId, optionsArray, label, onChange}) => {
-    const [selectedOption, setSelectedOption] = useState('')
+    const [selectedOption, setSelectedOption] = useState('Any')
     const handleChange = (e) => {
         setSelectedOption(e.target.value)
-        console.log(`selected option is ${e.target.value}`)
         onChange(e.target.value)
     }
     return (
@@ -13,7 +12,6 @@ const Select = ({selectId, optionsArray, label, onChange}) => {
             <select 
                 id={selectId} 
                 className="block w-full max-sm:w-60 h-9 p-1 bg-green-100 border border-gray-300 text-gray-700 text-sm rounded focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                // onChange={(e) => setSelectedOption(e.target.value)}
                 onChange={handleChange}
             >
                 {optionsArray.map((item) => {

@@ -23,6 +23,11 @@ const Home = () => {
         console.log("Let's go")
         console.log(formValues)
     }
+    const changeBoolValue = (keyName, bool) => {
+        setFormValues((prev) => {
+            return {...prev, [keyName]: bool}
+        })
+    }
     return (
         <div>
             <div className="relative">
@@ -71,17 +76,17 @@ const Home = () => {
                         />
                     </div>
                     <div className="flex flex-wrap justify-center">
-                        <Checkbox label="Low budget" />
-                        <Checkbox label="Hiking" />
-                        <Checkbox label="City sightseeing" />
-                        <Checkbox label="Mountain" />
-                        <Checkbox label="Wine" />
-                        <Checkbox label="Wilderness" />
-                        <Checkbox label="Desert" />
-                        <Checkbox label="Forest" />
-                        <Checkbox label="Island" />
-                        <Checkbox label="Family-friendly" />
-                        <Checkbox label="Pet-friendly" />
+                        <Checkbox label="Low budget" onChange={(bool) => changeBoolValue('lowBudget', bool)} />
+                        <Checkbox label="Hiking" onChange={(bool) => changeBoolValue('hiking', bool)}/>
+                        <Checkbox label="City sightseeing" onChange={(bool) => changeBoolValue('citySightseeing', bool)}/>
+                        <Checkbox label="Mountain" onChange={(bool) => changeBoolValue('mountain', bool)} />
+                        <Checkbox label="Wine" onChange={(bool) => changeBoolValue('wine', bool)} />
+                        <Checkbox label="Wilderness" onChange={(bool) => changeBoolValue('wilderness', bool)}/>
+                        <Checkbox label="Desert" onChange={(bool) => changeBoolValue('desert', bool)} />
+                        <Checkbox label="Forest" onChange={(bool) => changeBoolValue('forest', bool)} />
+                        <Checkbox label="Island" onChange={(bool) => changeBoolValue('island', bool)} />
+                        <Checkbox label="Family-friendly" onChange={(bool) => changeBoolValue('familyFriendly', bool)} />
+                        <Checkbox label="Pet-friendly" onChange={(bool) => changeBoolValue('petFriendly', bool)} />
                     </div>
                     <div>
                         <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
