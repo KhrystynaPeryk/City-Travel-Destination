@@ -11,7 +11,7 @@ const AnimationLoading = () => {
         }
     }
     return (
-        <div className="p-10 w-full bg-white">
+        <div className="p-10 mb-32 w-full bg-white">
             <Lottie options={defaultOptions} height={250} width={250} />
             <div className='flex justify-center items-center'>
                 <h2>Loading your cities...</h2>

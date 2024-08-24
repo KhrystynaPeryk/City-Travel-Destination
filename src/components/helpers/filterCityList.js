@@ -25,10 +25,8 @@ const getTemperatureRange = (weather) => {
 
 export const filterCityList = (formValuesObj) => {
     const season = getSeason();
-    console.log('season ---> ', season)
     const temperatureField = `average_temperature_in_${season}`;
     const temperatureRange = getTemperatureRange(formValuesObj.weather);
-    console.log('temperatureRange ---> ', temperatureRange)
     const filteredCities = data.filter((city) => {
         // Filter by continent if specified
         if (formValuesObj.continent !== 'Any' && city.continent !== formValuesObj.continent) {

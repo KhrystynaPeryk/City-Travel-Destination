@@ -4,8 +4,10 @@ import { useState, useRef } from "react";
 import { filterCityList } from "./helpers/filterCityList";
 import AnimationLoading from "./home-components/AnimationLoading";
 import Card from "./home-components/Card";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate()
     const [formValues, setFormValues] = useState({
         continent: 'Any',
         weather: 'Any',
@@ -56,6 +58,9 @@ const Home = () => {
         setFormValues((prev) => {
             return {...prev, [keyName]: bool}
         })
+    }
+    const handleNavigateToCityDetails = (cityPath) => {
+        navigate(`/city/${cityPath}`)
     }
     return (
         <div>
@@ -122,7 +127,7 @@ const Home = () => {
                         <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
                     </div>
                 </form>
-                <div className="absolute inset-x-0 h-24 bg-gradient-to-b from-[#23310C] to-transparent" />
+                <div className="absolute inset-x-0 h-5 bg-gradient-to-b from-[#23310C] to-transparent" />
             </div>
                 {/* Loading Animation */}
                 <div ref={animationRef}>
@@ -137,9 +142,9 @@ const Home = () => {
                         <h2 className="w-full p-10 text-center text-4xl font-bold font-noto">Cities that match your selected criteria</h2>
                         <div className="flex flex-wrap justify-center gap-6 p-6">
                             {filteredData.length > 0 ? (
-                                filteredData.map((city, index) => (
-                                    <Card key={index} city={city} />
-                                ))
+                                filteredData.map((city) => {
+                                    return <Card key={city.id} city={city} onClick={() => handleNavigateToCityDetails(city.id)}/>
+                                })
                             ) : (
                                 <p>Sorry, no cities match your criteria.</p>
                             )}

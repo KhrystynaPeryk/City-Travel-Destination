@@ -1,6 +1,6 @@
-const Card = ({ city }) => {
+const Card = ({ city, onClick }) => {
     return (
-        <div className="bg-white mb-10 w-1/3 shadow rounded-lg overflow-hidden relative group">
+        <div className="bg-white mb-10 w-1/3 max-md:w-full shadow rounded-lg overflow-hidden relative group cursor-pointer" onClick={onClick}>
             <div className="relative">
                 <img src={city.photoUrl} className="object-cover h-52 w-full" alt={city.cityName} />
                 <div className="absolute inset-0 bg-gray-800 opacity-50 group-hover:opacity-0 transition-opacity duration-300"></div>
