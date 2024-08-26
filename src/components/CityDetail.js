@@ -8,7 +8,7 @@ const TrueBox = ({label}) => {
     return (
         <div className='flex justify-center items-center'>
             <FaCheckCircle className="text-green-500 w-5 h-5" />
-            <div className='ml-2 text-green-600/75'>{label}</div>
+            <div className='ml-2 text-black-600/75'>{label}</div>
         </div>
     )
 }
@@ -42,9 +42,9 @@ const CityDetail = () => {
                 <img src={city.photoUrl} alt={city.cityName} className='w-96 h-96 m-4 rounded-md object-cover'/>
             </div>
             <div className='flex justify-center items-center flex-col leading-10 font-moto'>
-                <div><span className='text-gray-600/75 font-bold'>Country:</span> {city.country}</div>
-                <div><span className='text-gray-600/75 font-bold'>Continent:</span> {city.continent}</div>
-                <div><span className='text-gray-600/75 font-bold'>Best month to visit:</span> {city.best_month_to_visit}</div>
+                <div><span className='text-green-600/75 font-bold'>Country:</span> {city.country}</div>
+                <div><span className='text-green-600/75 font-bold'>Continent:</span> {city.continent}</div>
+                <div><span className='text-green-600/75 font-bold'>Best month to visit:</span> {city.best_month_to_visit}</div>
                 {city.travel_with_low_budget && <TrueBox label={'Low budget'}/>}
                 {city.visa_is_required && <TrueBox label={'Visa requirement'}/>}
                 {city.hiking && <TrueBox label={'Hiking'}/>}
