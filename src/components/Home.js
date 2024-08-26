@@ -60,6 +60,7 @@ const Home = () => {
         })
     }
     const handleNavigateToCityDetails = (cityPath) => {
+        window.scrollTo(0, 0);
         navigate(`/city/${cityPath}`)
     }
     return (
