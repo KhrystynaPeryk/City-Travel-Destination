@@ -74,7 +74,7 @@ const Home = () => {
             </div>
             <div className="bg-[#23310C] relative mb-28 text-white font-noto flex-column"> 
                 <form 
-                    className="py-8 px-20 flex flex-wrap gap-3 justify-center"
+                    className="py-4 px-20 flex flex-wrap gap-3 justify-center"
                     onSubmit={handleSubmit}
                 >
                     <div className="flex flex-wrap justify-center w-full gap-10 max-lg:gap-2">
@@ -124,7 +124,7 @@ const Home = () => {
                         <Checkbox label="Pet-friendly" onChange={(bool) => changeBoolValue('pet_friendly', bool)} />
                     </div>
                     <div className="my-10">
-                        <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-3xl max-sm:text-2xl px-10 py-4 m-5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
+                        <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-md text-2xl max-sm:text-xl px-10 py-4 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Let's Go!</button>
                     </div>
                 </form>
                 <div className="absolute inset-x-0 h-5 bg-gradient-to-b from-[#23310C] to-transparent" />

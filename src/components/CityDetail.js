@@ -9,11 +9,8 @@ const CityDetail = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        // PROBLEM IS BELOW - IT DOES NOT FIND CORRECT CITY.ID SEE THE CONSOLE
-        const filteredData = data.filter((city) => {
-            console.log('city.id', city.id)
-            return city.id === path
-        });
+        const cityId = parseInt(path, 10);
+        const filteredData = data.filter((city) => city.id == cityId);
         const [filteredCity] = filteredData;
         setCity(filteredCity);
         setIsLoading(false); 
@@ -29,8 +26,11 @@ const CityDetail = () => {
 
     return (
         <div>
+            <div>
+                <img src={city.photoUrl} alt={city.cityName} className='rounded-full w-96 h-96 object-cover object-center'/>
+            </div>
             <h1>{city.cityName}</h1>
-            {/* Other city details here */}
+            
         </div>
     );
 }
